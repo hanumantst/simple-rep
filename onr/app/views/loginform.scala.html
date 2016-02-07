@@ -1,0 +1,29 @@
+@(inputform: Form[Login])
+
+@import helper._
+
+
+@main("Login Form"){
+
+@if(inputform.hasErrors()){
+<center>
+<h3>OOPS: FIX THE ERRORS</h3>
+</center>
+}
+@helper.form(action= routes.LoginController.Validate){
+    <fieldset>
+    <center>
+    <p>
+    @inputText(inputform("email"),'_label->"Email")
+    </p>
+    <p>
+    @inputPassword(inputform("password"),'_label->"Password")
+    </p>
+    <p>
+    <input type="submit" value="submit">
+    </p>
+    </center>
+    </fieldset>
+}
+
+}
